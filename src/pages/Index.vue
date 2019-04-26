@@ -1,12 +1,190 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <q-page class="flex text-grey-14">
-
     <div id="q-app">
       <div class="q-pa-xl">
         <div class="row">
-          <div class="col-2 name text-black name">
-            <span class="row col-12 justify-center text-weight-bolder">Marcos</span>
-            <span class="row col-12 justify-center text-weight-bolder">Valens</span>
+          <div class="col-2">
+            <span class="row col-12 justify-center text-weight-bolder name text-black">Marcos</span>
+            <span class="row col-12 justify-center text-weight-bolder secondName text-black">Valens</span>
+            <div class="row q-pt-md col-12">
+              <p class="text-center text-weight-bold">Desarrollador y maquetador de aplicaciones</p>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="my_location"></q-icon>
+                <div class="col text-center text-weight-bold">Objetivo Profesional</div>
+              </q-bar>
+            </div>
+            <div class="col-12 q-pt-md">
+              <p class="text-justify">Mi deseo es adaptarme a las necesidades de la empresa y aprovechar la
+                posibilidad de
+                trabajar en su equipo,
+                para crecer como profesional y dar lo mejor de mis cualidades. Mi preferencia esta en el lado
+                'Front-End,
+                aunque puedo desarrollar cualquier aspecto de este campo.</p>
+            </div>
+            <div class="row">
+              <div class="q-pt-md">
+                <q-avatar rounded size="14vw"><img src="../assets/fotocarnet.png" alt="fotoCarnet"></q-avatar>
+              </div>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="face"></q-icon>
+                <div class="col text-center text-weight-bold">Información Personal</div>
+              </q-bar>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-white">
+                <q-icon name="insert_invitation"></q-icon>
+                <div class="col">16 de septiembre de 1985</div>
+              </q-bar>
+            </div>
+            <div class="col-12">
+              <q-bar class="bg-white">
+                <q-icon name="person_pin_circle"></q-icon>
+                <div class="col">Son Ferriol, Palma</div>
+              </q-bar>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <q-bar class="bg-white">
+                  <q-icon name="directions_car"></q-icon>
+                  <div class="col">A1 - B - BTP</div>
+                </q-bar>
+              </div>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="email"></q-icon>
+                <div class="col text-center text-weight-bold">Contacto</div>
+              </q-bar>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-white">
+                <q-icon name="phone"></q-icon>
+                <div class="col"><a href="tel:+34 685 348 612">+34 685 348 612</a></div>
+              </q-bar>
+            </div>
+            <div class="col-12">
+              <q-bar class="bg-white">
+                <q-icon name="alternate_email"></q-icon>
+                <div class="col"><a href="mailto:marcosvalens@gmail.com">marcosvalens@gmail.com</a></div>
+              </q-bar>
+            </div>
+            <div class="col-12">
+              <q-bar class="bg-white">
+                <q-icon name="ion-logo-github"></q-icon>
+                <div class="col"><a href="https://github.com/marcosvalens">github.com/marcosvalens</a></div>
+              </q-bar>
+            </div>
+            <div class="col-12">
+              <q-bar class="bg-white">
+                <q-icon name="ion-logo-linkedin"></q-icon>
+                <div class="col"><a href="https://www.linkedin.com/in/marcosvalens/">linkedin.com/in/marcosvalens</a>
+                </div>
+              </q-bar>
+            </div>
+            <div class="col-12 q-pt-md">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="timeline"></q-icon>
+                <div class="col text-center text-weight-bold">Competencias</div>
+              </q-bar>
+            </div>
+            <div class="col-12 q-pt-md" @mouseover="start" @mouseleave="restart">
+              <q-bar class="bg-white">
+                <q-icon name="devices"></q-icon>
+                <div class="col">Front-End</div>
+              </q-bar>
+              <q-linear-progress :value="progress" color="positive" class="q-mt-sm"/>
+            </div>
+            <div class="col-12 q-pt-md" @mouseover="startBack" @mouseleave="restartBack">
+              <q-bar class="bg-white">
+                <q-icon name="storage"></q-icon>
+                <div class="col">Back-End</div>
+              </q-bar>
+              <q-linear-progress :value="progress1" color="warning" class="q-mt-sm"/>
+            </div>
+            <div class="col-12 q-pt-lg">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="mode_comment"></q-icon>
+                <div class="col text-center text-weight-bold">Idiomas</div>
+              </q-bar>
+            </div>
+            <div class="row">
+              <div class="flex col-12 justify-center q-pt-sm">
+                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Spain.svg"
+                                                 alt="Idioma Catalan">
+                  <q-rating
+                    class="justify-center"
+                    v-model="ratingSpanish"
+                    size="1vw"
+                    :max="3"
+                    color="orange"
+                    readonly
+                  />
+                </q-avatar>
+                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Catalonia.svg"
+                                                 alt="Idioma Español">
+                  <q-rating
+                    class="justify-center"
+                    v-model="ratingCatalan"
+                    size="1vw"
+                    :max="3"
+                    color="orange"
+                    readonly
+                  />
+                </q-avatar>
+                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/gb.svg" alt="Idioma Ingles">
+                  <q-rating
+                    class="justify-center"
+                    v-model="ratingEnglish"
+                    size="1vw"
+                    :max="3"
+                    color="orange"
+                    readonly
+                  />
+                </q-avatar>
+              </div>
+            </div>
+            <div class="col-12 q-pt-lg">
+              <q-bar class="bg-negative text-white">
+                <q-icon name="add_circle_outline"></q-icon>
+                <div class="col text-center text-weight-bold">Otras Competencias</div>
+              </q-bar>
+            </div>
+            <div class="q-pa-md col-12">
+              <q-list dense class="rounded-borders">
+                <ul class="q-pa-none">
+                  <q-item clickable v-ripple>
+                    <li class="text-justify">
+                      <span class="text-weight-bold">Primeros auxilios:</span>
+                      <p>Cerificado de Primeros Auxilios certificado por la Cruz Roja (25
+                        horas - 2004)</p>
+                    </li>
+                  </q-item>
+                  <q-item clickable v-ripple>
+                    <li class="text-justify">
+                      <span class="text-weight-bold">Curso de prevención de reisgos laborales:</span>
+                      <p>Certificado por la academia Fomento Profesional (25 horas - 2014)</p>
+                    </li>
+                  </q-item>
+                  <q-item clickable v-ripple>
+                    <li class="text-justify">
+                      <span class="text-weight-bold">Curso técnico instalador de energías renovables:</span>
+                      <p>Cerificado por la academa Fomento Profesional
+                        (800 horas - 2012)</p>
+                    </li>
+                  </q-item>
+                  <q-item clickable v-ripple>
+                    <li class="text-justify">
+                      <span class="text-weight-bold">Curso de gas canalizado y altas de nuevo suministro:</span>
+                      <p>Cerificado por la empresa Activais (50 horas - 2012)</p>
+                    </li>
+                  </q-item>
+                </ul>
+              </q-list>
+            </div>
           </div>
           <div class="col-10">
             <q-bar class="bg-negative text-white">
@@ -16,7 +194,8 @@
             <h6 class="q-mt-sm date">Septiembre 2017 - Actualidad <span class="text-secondary">Desarrollo de aplicaciones web -
           Ciclo Formativo Grado Superior</span></h6>
             <h6 class="q-mt-sm text-bold text-black">C.P. Es Liceu</h6>
-            <p>La competencia general de este ciclo se vincula a el desarrollo, implementación y mantenimiento de sistemas
+            <p>La competencia general de este ciclo se vincula a el desarrollo, implementación y mantenimiento de
+              sistemas
               informáticos, base de datos, programación, lenguaje de marcas y entornos de desarrollo</p>
             <h6 class="q-mt-sm date">Septiembre 2001 - Julio 2003 <span class="work">Técnico en preimpresion digital -
           Ciclo Formativo Grado Superior</span></h6>
@@ -24,254 +203,6 @@
             <p>Las competencias trabajadas en este ciclo es el tratamiento de textos e imagen en mapa de bits,
               imposición y obtención digital de la forma impresora, compaginación identificacíon de materiales en
               preimpresión, ensablado de publicaciones electrónicas e ilustración vectorial</p>
-          </div>
-        </div>
-        <div class="row q-pt-md">
-          <div class="col-2">
-            <div class="col-12">
-              <p class="col-12 text-center text-weight-bold">Desarrollador y maquetador de aplicaciones</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="my_location"></q-icon>
-                <div class="col text-center text-weight-bold">Objetivo Profesional</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md">
-            <div class="col-12">
-              <p class="col-12 text-justify">Mi deseo es adaptarme a las necesidades de la empresa y aprovechar la
-                posibilidad de
-                trabajar en su equipo,
-                para crecer como profesional y dar lo mejor de mis cualidades. Mi preferencia esta en el lado
-                'Front-End,
-                aunque puedo desarrollar cualquier aspecto de este campo.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md justify-center">
-            <q-avatar rounded size="14vw"><img src="../assets/fotocarnet.png" alt="fotoCarnet"></q-avatar>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="face"></q-icon>
-                <div class="col text-center text-weight-bold">Información Personal</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="insert_invitation"></q-icon>
-                <div class="col">16 de septiembre de 1985</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="person_pin_circle"></q-icon>
-                <div class="col">Son Ferriol, Palma</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="directions_car"></q-icon>
-                <div class="col">A1 - B - BTP</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="email"></q-icon>
-                <div class="col text-center text-weight-bold">Contacto</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2  q-pt-md">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="phone"></q-icon>
-                <div class="col"><a href="tel:+34 685 348 612">+34 685 348 612</a></div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="alternate_email"></q-icon>
-                <div class="col"><a href="mailto:marcosvalens@gmail.com">marcosvalens@gmail.com</a></div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="ion-logo-github"></q-icon>
-                <div class="col"><a href="https://github.com/marcosvalens">github.com/marcosvalens</a></div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="ion-logo-linkedin"></q-icon>
-                <div class="col"><a href="https://www.linkedin.com/in/marcosvalens/">linkedin.com/in/marcosvalens</a>
-                </div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="timeline"></q-icon>
-                <div class="col text-center text-weight-bold">Competencias</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md" @mouseover="start" @mouseleave="restart">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="devices"></q-icon>
-                <div class="col">Front-End</div>
-              </q-bar>
-              <q-linear-progress :value="progress" color="positive" class="q-mt-sm"/>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-md" @mouseover="startBack" @mouseleave="restartBack">
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="storage"></q-icon>
-                <div class="col">Back-End</div>
-              </q-bar>
-              <q-linear-progress :value="progress1" color="warning" class="q-mt-sm"/>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-lg">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="mode_comment"></q-icon>
-                <div class="col text-center text-weight-bold">Idiomas</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="flex col-2 justify-center q-pt-sm">
-            <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Spain.svg" alt="Idioma Catalan">
-              <q-rating
-                class="justify-center"
-                v-model="ratingSpanish"
-                size="1vw"
-                :max="3"
-                color="orange"
-                readonly
-              />
-            </q-avatar>
-            <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Catalonia.svg"
-                                             alt="Idioma Español">
-              <q-rating
-                class="justify-center"
-                v-model="ratingCatalan"
-                size="1vw"
-                :max="3"
-                color="orange"
-                readonly
-              />
-            </q-avatar>
-            <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/gb.svg" alt="Idioma Ingles">
-              <q-rating
-                class="justify-center"
-                v-model="ratingEnglish"
-                size="1vw"
-                :max="3"
-                color="orange"
-                readonly
-              />
-            </q-avatar>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2 q-pt-lg">
-            <div class="col-12">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="add_circle_outline"></q-icon>
-                <div class="col text-center text-weight-bold">Otras Competencias</div>
-              </q-bar>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="q-pa-md col-2">
-
-            <q-list dense class="rounded-borders">
-              <ul class="q-pa-none">
-                <q-item clickable v-ripple>
-                  <li class="text-justify">
-                    <span class="text-weight-bold">Primeros auxilios:</span><p>Cerificado de Primeros Auxilios certificado por la Cruz Roja (25
-                    horas - 2004)</p>
-                  </li>
-                </q-item>
-
-                <q-item clickable v-ripple>
-                  <li class="text-justify">
-                    <span class="text-weight-bold">Curso de prevención de reisgos laborales:</span><p>Certificado por la academia Fomento Profesional (25 horas - 2014)</p>
-                  </li>
-                </q-item>
-
-                <q-item clickable v-ripple>
-                  <li class="text-justify">
-                    <span class="text-weight-bold">Curso técnico instalador de energías renovables:</span><p>Cerificado por la academa Fomento Profesional
-                    (800 horas - 2012)</p>
-                  </li>
-                </q-item>
-
-                <q-item clickable v-ripple>
-                  <li class="text-justify">
-                    <span class="text-weight-bold">Curso de gas canalizado y altas de nuevo suministro:</span>
-                    <p>Cerificado por la empresa Activais (50 horas - 2012)</p>
-                  </li>
-                </q-item>
-              </ul>
-            </q-list>
-
           </div>
         </div>
       </div>
@@ -366,6 +297,10 @@
 
 <style>
   .name {
+    font-size: 50px;
+  }
+
+  .secondName {
     font-size: 50px;
     border-bottom: solid black 7px;
   }
