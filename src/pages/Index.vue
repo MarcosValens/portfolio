@@ -3,11 +3,11 @@
     <div id="q-app">
       <div class="q-pa-xl">
         <div class="row">
-          <div class="col-2">
-            <span class="row col-12 justify-center text-weight-bolder name text-black">Marcos</span>
-            <span class="row col-12 justify-center text-weight-bolder secondName text-black">Valens</span>
-            <div class="row q-pt-md col-12">
-              <p class="text-center text-weight-bold">Desarrollador y maquetador de aplicaciones</p>
+          <div class="col-lg-2 col-xs-12">
+            <span class="row justify-center text-weight-bolder name text-black">Marcos</span>
+            <span class="row justify-center text-weight-bolder secondName text-black">Valens</span>
+            <div class="row q-pt-md">
+              <p class="text-center text-weight-bold">Desarrollador y maquetador de aplicaciones web.</p>
             </div>
             <div class="col-12 q-pt-md">
               <q-bar class="bg-negative text-white">
@@ -17,16 +17,13 @@
             </div>
             <div class="col-12 q-pt-md">
               <p class="text-justify">Mi deseo es adaptarme a las necesidades de la empresa y aprovechar la
-                posibilidad de
-                trabajar en su equipo,
-                para crecer como profesional y dar lo mejor de mis cualidades. Mi preferencia esta en el lado
-                'Front-End,
-                aunque puedo desarrollar cualquier aspecto de este campo.</p>
+                posibilidad de trabajar en su equipo, para crecer como profesional y dar lo mejor de mis cualidades.
+                Mi preferencia esta en el lado 'Front-End, aunque puedo desarrollar cualquier aspecto de este campo.</p>
             </div>
-            <div class="row">
-              <div class="q-pt-md">
-                <q-avatar rounded size="14vw"><img src="../assets/fotocarnet.png" alt="fotoCarnet"></q-avatar>
-              </div>
+            <div class="row desktop-only">
+              <img
+                src="../assets/fotocarnet.png"
+              />
             </div>
             <div class="col-12 q-pt-md">
               <q-bar class="bg-negative text-white">
@@ -112,39 +109,40 @@
               </q-bar>
             </div>
             <div class="row">
-              <div class="flex col-12 justify-center q-pt-sm">
-                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Spain.svg"
-                                                 alt="Idioma Catalan">
-                  <q-rating
-                    class="justify-center"
+              <div class="flex col-12 justify-around q-pt-sm">
+                <div clas="col-sm-4">
+                  <q-avatar square>
+                    <img  src="../assets/icons/Flag_Spain.svg" alt="Idioma Español">
+                  </q-avatar>
+                  <div class="flex justify-center"><q-rating
                     v-model="ratingSpanish"
-                    size="1vw"
                     :max="3"
                     color="orange"
                     readonly
-                  />
-                </q-avatar>
-                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/Flag_Catalonia.svg"
-                                                 alt="Idioma Español">
-                  <q-rating
-                    class="justify-center"
+                  /></div>
+                  </div>
+                <div>
+                  <q-avatar square>
+                    <img  src="../assets/icons/Flag_Catalonia.svg" alt="Idioma Catalan">
+                  </q-avatar>
+                  <div class="flex justify-center"><q-rating
                     v-model="ratingCatalan"
-                    size="1vw"
                     :max="3"
                     color="orange"
                     readonly
-                  />
-                </q-avatar>
-                <q-avatar square size="4vw"><img class="col-8" src="../assets/icons/gb.svg" alt="Idioma Ingles">
-                  <q-rating
-                    class="justify-center"
+                  /></div>
+                </div>
+                <div>
+                  <q-avatar square>
+                    <img  src="../assets/icons/gb.svg" alt="Idioma Ingles">
+                  </q-avatar>
+                  <div class="flex justify-center"><q-rating
                     v-model="ratingEnglish"
-                    size="1vw"
                     :max="3"
                     color="orange"
                     readonly
-                  />
-                </q-avatar>
+                  /></div>
+                </div>
               </div>
             </div>
             <div class="col-12 q-pt-lg">
@@ -186,112 +184,373 @@
               </q-list>
             </div>
           </div>
-          <div class="col-10">
+          <div class="col-lg-10 col-xs-12 q-pl-lg">
             <q-bar class="bg-negative text-white">
               <q-icon name="book"></q-icon>
               <div class="col text-center text-weight-bold">Formación Academica</div>
             </q-bar>
-            <h6 class="q-mt-sm date">Septiembre 2017 - Actualidad <span class="text-secondary">Desarrollo de aplicaciones web -
+            <h6 class="q-my-sm date">Septiembre 2017 - Actualidad <span class="text-negative">Desarrollo de aplicaciones web -
           Ciclo Formativo Grado Superior</span></h6>
-            <h6 class="q-mt-sm text-bold text-black">C.P. Es Liceu</h6>
+            <h6 class="q-my-sm text-bold text-black">C.P. Es Liceu</h6>
             <p>La competencia general de este ciclo se vincula a el desarrollo, implementación y mantenimiento de
-              sistemas
-              informáticos, base de datos, programación, lenguaje de marcas y entornos de desarrollo</p>
-            <h6 class="q-mt-sm date">Septiembre 2001 - Julio 2003 <span class="work">Técnico en preimpresion digital -
-          Ciclo Formativo Grado Superior</span></h6>
-            <h6 class="q-mt-sm text-bold text-black">I.E.S. Josep Maria Llompart</h6>
+              sistemas informáticos, base de datos, programación, lenguaje de marcas y entornos de desarrollo.</p>
+            <h6 class="q-my-sm date">Septiembre 2001 - Julio 2003 <span class="text-negative">Técnico en preimpresion digital -
+              Ciclo Formativo Grado Superior</span></h6>
+            <h6 class="q-my-sm text-bold text-black">I.E.S. Josep Maria Llompart</h6>
             <p>Las competencias trabajadas en este ciclo es el tratamiento de textos e imagen en mapa de bits,
               imposición y obtención digital de la forma impresora, compaginación identificacíon de materiales en
               preimpresión, ensablado de publicaciones electrónicas e ilustración vectorial</p>
+            <q-bar class="bg-negative text-white">
+              <q-icon name="laptop"></q-icon>
+              <div class="col text-center text-weight-bold">Informática</div>
+            </q-bar>
+            <div class="row q-pa-sm">
+              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
+                <img src="../assets/icons/html5.svg"/>
+              </div>
+              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
+                <img src="../assets/icons/css3.svg"/>
+              </div>
+              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
+                <img src="../assets/icons/js6.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/Sass_Logo.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/vue.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/quasar.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/Npm-logo.svg"/>
+              </div>
+            </div>
+            <div class="row q-pa-sm flex justify-around">
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/java_logo.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/mysql_logo.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/git_icon.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/apache-logo.svg"/>
+              </div>
+              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
+                <img src="../assets/icons/tomcat_logo.svg"/>
+              </div>
+            </div>
+            <div class="row flex items-center justify-around">
+              <div class="col-lg-1 col-sm-3 q-pa-lg">
+                <img src="../assets/icons/gulp.svg"/>
+              </div>
+              <div class="col-lg-3 col-sm-6 q-pa-lg">
+                <img src="../assets/icons/Cordova-logo.svg"/>
+              </div>
+              <div class="col-lg-3 col-sm-6 q-pa-lg">
+                <img src="../assets/icons/photoshop_logo.svg"/>
+              </div>
+              <div class="col-lg-3 col-sm-6 q-pa-lg">
+                <img src="../assets/icons/illustrator.svg"/>
+              </div>
+            </div>
+            <q-bar class="bg-negative text-white">
+              <q-icon name="work"></q-icon>
+              <div class="col text-center text-weight-bold">Experiencia Laboral</div>
+            </q-bar>
+            <div class="q-pa-md row justify-around q-gutter-md">
+              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
+                <img src="../assets/taxi.png">
+                <q-card-section>
+                  <div class="text-h6">Abril 2013 - Actualidad</div>
+                  <div class="text-subtitle2 text-negative">Ajuntament de Palma</div>
+                </q-card-section>
+                <q-tabs v-model="tab"
+                        dense
+                        active-color="negative"
+                        indicator-color="negative"
+                        align="justify"
+                        narrow-indicator>
+                  <q-tab label="Cargos" name="one"/>
+                  <q-tab label="Información" name="two"/>
+                </q-tabs>
+                <q-separator/>
+                <q-tab-panels v-model="tab" animated>
+                  <q-tab-panel name="one">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Transporte de clientes en la isla de Mallorca.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Capacidad de comunicación con el cliente.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                  <q-tab-panel name="two">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Solamente ejerzo este puesto durante las temporadas de verano.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>He trabajado con las tres radios disponibles en Palma: Taxis-Palma,
+                                Radio-Taxi y Taxi-Telefono.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Aunque no tengo ningún problema con el horario, siempre he cubierto el turno
+                                nocturno.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                </q-tab-panels>
+              </q-card></div>
+              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
+                <img src="../assets/inspeciónperiodica.png">
+                <q-card-section>
+                  <div class="text-h6">Marzo 2007 - Junio 2013</div>
+                  <div class="text-subtitle2 text-negative">Activais</div>
+                </q-card-section>
+                <q-tabs v-model="tab1"
+                        dense
+                        active-color="negative"
+                        indicator-color="negative"
+                        align="justify"
+                        narrow-indicator>
+                  <q-tab label="Cargos" name="one"/>
+                  <q-tab label="Información" name="two"/>
+                </q-tabs>
+                <q-separator/>
+                <q-tab-panels v-model="tab1" animated>
+                  <q-tab-panel name="one">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Pruebas de estanqueidad en instalaciones comunes e individuales.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Instalación de contadores de gas canalizado.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Pruebas de combustión de CO2 a aparatos de menos de 70Kw.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                  <q-tab-panel name="two">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>La empresa distribuidora de gas natural es Gesa Gas.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Activais era la empresa subcontratada por Gesa Gas</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                </q-tab-panels>
+              </q-card></div>
+              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
+                <img src="../assets/Son-San-Juan.png">
+                <q-card-section>
+                  <div class="text-h6">Octubre 2005 - Noviembre 2007</div>
+                  <div class="text-subtitle2 text-negative">Fuerza Armada Española</div>
+                </q-card-section>
+                <q-tabs v-model="tab2"
+                        dense
+                        active-color="negative"
+                        indicator-color="negative"
+                        align="justify"
+                        narrow-indicator>
+                  <q-tab label="Cargos" name="one"/>
+                  <q-tab label="Información" name="two"/>
+                </q-tabs>
+                <q-separator/>
+                <q-tab-panels v-model="tab2" animated>
+                  <q-tab-panel name="one">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Policía militar profesional en el ejercito de aire.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Función de guarda espaldas para altos mandos del ejercito español.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Rango: Soldado.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                  <q-tab-panel name="two">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Vigilancia de aviones de combate y helicopteros de salvamento.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Practicas de tiro con diferentes tipos de armas y munición.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                </q-tab-panels>
+              </q-card></div>
+              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
+                <img src="../assets/lacolumnata.png">
+                <q-card-section>
+                  <div class="text-h6">Septiembre 2003 - Septiembre 2005</div>
+                  <div class="text-subtitle2 text-negative">La Columnata</div>
+                </q-card-section>
+                <q-tabs v-model="tab3"
+                        dense
+                        active-color="negative"
+                        indicator-color="negative"
+                        align="justify"
+                        narrow-indicator>
+                  <q-tab label="Cargos" name="one"/>
+                  <q-tab label="Información" name="two"/>
+                </q-tabs>
+                <q-separator/>
+                <q-tab-panels v-model="tab3" animated>
+                  <q-tab-panel name="one">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Transporte de pedidos a domicilio.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Cocinero.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Encargado de local.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                  <q-tab-panel name="two">
+                    <ul class="q-pa-none">
+                      <q-list>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Equipo de cuatro personas al cargo. llevaba las cuentas del local y me
+                                encargaba de hacer el inventario del local.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Encargado de la contabilidad del local al cargo.</q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                        <q-item clickable v-ripple>
+                          <li>
+                            <q-item-section>
+                              <q-item-label>Encargado del inventario del local, asi como de hacer los pedidos a los
+                                proveedores.
+                              </q-item-label>
+                            </q-item-section>
+                          </li>
+                        </q-item>
+                      </q-list>
+                    </ul>
+                  </q-tab-panel>
+                </q-tab-panels>
+              </q-card></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-
-    <!--
-
-      <div class="col-7" style="height: 13%">
-        <h6 class="q-mt-sm date">Septiembre 2017 - Actualidad <span class="work">Desarrollo de aplicaciones web -
-          Ciclo Formativo Grado Superior</span></h6>
-        <h6 class="q-mt-sm text-bold text-black">C.P. Es Liceu</h6>
-        <p>La competencia general de este ciclo se vincula a el desarrollo, implementación y mantenimiento de sistemas
-          informáticos, base de datos, programación, lenguaje de marcas y entornos de desarrollo</p>
-        <h6 class="q-mt-sm date">Septiembre 2001 - Julio 2003 <span class="work">Técnico en preimpresion digital -
-          Ciclo Formativo Grado Superior</span></h6>
-        <h6 class="q-mt-sm text-bold text-black">I.E.S. Josep Maria Llompart</h6>
-        <p>Las competencias trabajadas en este ciclo es el tratamiento de textos e imagen en mapa de bits,
-          imposición y obtención digital de la forma impresora, compaginación identificacíon de materiales en
-          preimpresión, ensablado de publicaciones electrónicas e ilustración vectorial</p>
-      </div>
-
-
-      <div class="title q-mb-md row col-12" style="height: 1%">
-        <div class="row col-12" style="height: 100%"><img class="q-ml-sm q-mr-lg row" style="height: 100%"
-                                                          src="../assets/icons/computer_logo.svg"
-                                                          alt="logo informatica">
-          <span class="q-mt-xs col-7">Informática</span></div>
-      </div>
-
-      <div class="q-mb-md row col-8 items-start content-start justify-between" style="height: 26%">
-        <img src="../assets/icons/html5-css3-javascript-logos.svg" class="col-3 q-mr-lg" alt="logos html-css-js">
-        <img src="../assets/icons/jquery-logo.svg" class="col-1" alt="logo jquery">
-        <img src="../assets/icons/vue_icon.svg" class="col-1 q-mr-lg" alt="logo vuejs">
-        <img src="../assets/icons/quasar_icon.svg" class="col-1 q-mr-lg" alt="logo quasar">
-        <img src="../assets/icons/Npm-logo.svg" class="col-2 q-mr-lg" alt="logo npm">
-        <img src="../assets/icons/java_logo.svg" class="col-1 q-mr-xl" alt="logo java">
-        <img src="../assets/icons/mysql_logo.svg" class="col-2 q-mr-lg" alt="logo mysql">
-        <img src="../assets/icons/webpack-logo.svg" class="col-2 q-mr-lg" alt="logo webpack">
-        <img src="../assets/icons/git_icon.svg" class="col-2 q-mr-lg" alt="logo git">
-        <img src="../assets/icons/apache-logo.svg" class="col-2 q-mr-lg" alt="logo apache">
-        <img src="../assets/icons/tomcat_logo.svg" class="col-2 q-mr-lg" alt="logo Tomcat">
-        <img src="../assets/icons/Cordova-logo.svg" class="col-3 q-mr-xl" alt="logo Cordova">
-        <img src="../assets/icons/photoshop_logo.svg" class="col-3 q-mr-xl" alt="logo photshop">
-        <img src="../assets/icons/illustrator.svg" class="col-3 q-mr-xl" alt="logo illustrator">
-        <img src="../assets/icons/gulp_logo.svg" class="col-1 q-mr-lg" alt="logo gulp">
-      </div>
-      <div class="title q-mb-md row col-12" style="height: 1%">
-        <div class="row col-12" style="height: 100%"><img class="q-ml-sm q-mr-lg row" style="height: 100%"
-                                                          src="../assets/icons/computer_logo.svg"
-                                                          alt="logo informatica">
-          <span class="q-mt-xs col-7">Experiencia Laboral</span></div>
-      </div>
-
-      <div class="col-7" style="height: 20%">
-        <h6 class="q-mt-sm date">Abril 2013 - Actualidad (Temporadas de verano) <span class="work"> Chofer</span></h6>
-        <h6 class="q-mt-sm text-bold text-black">Taxi Palma</h6>
-        <ul>
-          <li>Transporte de clientes en la isla de Mallorca.</li>
-          <li>Capacidad de comunicacion con el cliente.</li>
-        </ul>
-        <h6 class="q-mt-xl date">Marzo 2007 - Junio 2013 <span class="work"> Inspector de instalaciones de gas
-          canalizado e instalador de contadores de gas canalizado</span></h6>
-        <h6 class="q-mt-sm text-bold text-black">Activais</h6>
-        <ul>
-          <li>Pruebas de estanqueidad en instalaciones comunes e individuales.</li>
-          <li>Instalación de contadores de gas canalizado</li>
-          <li>Pruebas de combustión de CO2 a aparatos de fas con menos de 70 Kw</li>
-        </ul>
-        <h6 class="q-mt-xl date">Octubre 2005 - Noviembre 2007 <span class="work"> Policía militar profesional en el ejercito de aire </span></h6>
-        <h6 class="q-mt-sm text-bold text-black">Fuerza Armada Española</h6>
-        <ul>
-          <li>Vigilancia sobre la base aérea española de Sont Sant Joan</li>
-          <li>Función de guarda espaldas para altos mandos del ejercito español</li>
-          <li>Rango Soldado</li>
-        </ul>
-        <h6 class="q-mt-xl date">Septiembre 2003 - Septiembre 2005 <span class="work"> Encargado de pizzeria </span></h6>
-        <h6 class="q-mt-sm text-bold text-black">La Columnata</h6>
-        <ul>
-          <li>Transporte de pedidos a domicilio</li>
-          <li>Cocinero</li>
-          <li>Encargado de local con 4 personas al cargo</li>
-        </ul>
-      </div>
-
-    </div>-->
-    <!--</div>-->
-
-
   </q-page>
 </template>
 
@@ -303,6 +562,10 @@
   .secondName {
     font-size: 50px;
     border-bottom: solid black 7px;
+  }
+
+  img {
+    max-width: 100%;
   }
 
   a:link {
@@ -317,6 +580,7 @@
   a:hover {
     color: cornflowerblue;
   }
+
 </style>
 
 <script>
@@ -328,7 +592,11 @@
         progress1: 0.0,
         ratingSpanish: 3,
         ratingCatalan: 3,
-        ratingEnglish: 2
+        ratingEnglish: 2,
+        tab: 'one',
+        tab1: 'one',
+        tab2: 'one',
+        tab3: 'one',
       }
     },
     methods: {

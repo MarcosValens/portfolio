@@ -65,8 +65,7 @@ module.exports = function (ctx) {
         'QCircularProgress',
         'QDialog',
         'QSpace',
-        'QBreadcrumbs',
-        'QBreadcrumbsEl'
+        'QTooltip'
       ],
 
       directives: [

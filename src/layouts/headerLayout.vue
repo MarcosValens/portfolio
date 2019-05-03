@@ -11,6 +11,7 @@
       v-model="drawer"
       :width="200"
       :breakpoint="500"
+      indicator-color="negative"
       show-if-above
       bordered
       content-class="bg-grey-3"
@@ -20,21 +21,21 @@
         link
         inset-delimiter
       >
-        <q-item clickable v-ripple to="/index">
+        <q-item clickable v-ripple:negative to="/index">
           <q-item-section avatar>
             <q-icon color="blue" name="format_list_bulleted" />
           </q-item-section>
           <q-item-section>Inicio</q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/skills">
+        <q-item clickable v-ripple:negative to="/skills">
           <q-item-section avatar>
             <q-icon color="blue" name="build" />
           </q-item-section>
           <q-item-section>Skills</q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/portfolio">
+        <q-item class="hidden" clickable v-ripple:negative to="/portfolio">
           <q-item-section avatar>
             <q-icon color="blue" name="work" />
           </q-item-section>
