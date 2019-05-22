@@ -9,175 +9,71 @@
             <div class="row q-pt-md">
               <p class="text-center text-weight-bold">Desarrollador y maquetador de aplicaciones web.</p>
             </div>
-            <div class="col-12 q-pt-md">
+            <div class="col-12 q-pt-md" v-for="info in information">
               <q-bar class="bg-negative text-white">
-                <q-icon name="my_location"></q-icon>
-                <div class="col text-center text-weight-bold">Objetivo Profesional</div>
+                <q-icon :name="info.icon"></q-icon>
+                <div class="col text-center text-weight-bold">{{info.title}}</div>
               </q-bar>
-            </div>
-            <div class="col-12 q-pt-md">
-              <p class="text-justify">Mi deseo es adaptarme a las necesidades de la empresa y aprovechar la
-                posibilidad de trabajar en su equipo, para crecer como profesional y dar lo mejor de mis cualidades.
-                Mi preferencia esta en el lado 'Front-End, aunque puedo desarrollar cualquier aspecto de este campo.</p>
-            </div>
-            <div class="row desktop-only">
-              <img
-                src="../assets/fotocarnet.png"
-              />
-            </div>
-            <div class="col-12 q-pt-md">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="face"></q-icon>
-                <div class="col text-center text-weight-bold">Información Personal</div>
-              </q-bar>
-            </div>
-            <div class="col-12 q-pt-md">
-              <q-bar class="bg-white">
-                <q-icon name="insert_invitation"></q-icon>
-                <div class="col">16 de septiembre de 1985</div>
-              </q-bar>
-            </div>
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="person_pin_circle"></q-icon>
-                <div class="col">Son Ferriol, Palma</div>
-              </q-bar>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <q-bar class="bg-white">
-                  <q-icon name="directions_car"></q-icon>
-                  <div class="col">A1 - B - BTP</div>
+              <div class="row desktop-only" v-if="info.imgToogle">
+                <img :src="info.url" :alt="info.alt"/>
+              </div>
+              <div class="col-12 q-pt-md">
+                <p class="text-justify" v-if="info.textToogle">{{info.text}}</p>
+                <q-bar class="bg-white" v-for="point in info.points" v-if="info.listToogle">
+                  <q-icon :name="point.icon"></q-icon>
+                  <div class="col">{{point.text}}</div>
+                </q-bar>
+                <q-bar class="bg-white" v-for="point in info.points" v-if="info.linkToogle">
+                  <q-icon :name="point.icon"></q-icon>
+                  <div class="col"><a :href="point.direction">{{point.text}}</a></div>
                 </q-bar>
               </div>
-            </div>
-            <div class="col-12 q-pt-md">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="email"></q-icon>
-                <div class="col text-center text-weight-bold">Contacto</div>
-              </q-bar>
-            </div>
-            <div class="col-12 q-pt-md">
-              <q-bar class="bg-white">
-                <q-icon name="phone"></q-icon>
-                <div class="col"><a href="tel:+34 685 348 612">+34 685 348 612</a></div>
-              </q-bar>
-            </div>
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="alternate_email"></q-icon>
-                <div class="col"><a href="mailto:marcosvalens@gmail.com">marcosvalens@gmail.com</a></div>
-              </q-bar>
-            </div>
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="ion-logo-github"></q-icon>
-                <div class="col"><a href="https://github.com/marcosvalens">github.com/marcosvalens</a></div>
-              </q-bar>
-            </div>
-            <div class="col-12">
-              <q-bar class="bg-white">
-                <q-icon name="ion-logo-linkedin"></q-icon>
-                <div class="col"><a href="https://www.linkedin.com/in/marcosvalens/">linkedin.com/in/marcosvalens</a>
-                </div>
-              </q-bar>
-            </div>
-            <div class="col-12 q-pt-md">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="timeline"></q-icon>
-                <div class="col text-center text-weight-bold">Competencias</div>
-              </q-bar>
-            </div>
-            <div class="col-12 q-pt-md" @mouseover="start" @mouseleave="restart">
-              <q-bar class="bg-white">
-                <q-icon name="devices"></q-icon>
-                <div class="col">Front-End</div>
-              </q-bar>
-              <q-linear-progress :value="progress" color="positive" class="q-mt-sm"/>
-            </div>
-            <div class="col-12 q-pt-md" @mouseover="startBack" @mouseleave="restartBack">
-              <q-bar class="bg-white">
-                <q-icon name="storage"></q-icon>
-                <div class="col">Back-End</div>
-              </q-bar>
-              <q-linear-progress :value="progress1" color="warning" class="q-mt-sm"/>
-            </div>
-            <div class="col-12 q-pt-lg">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="mode_comment"></q-icon>
-                <div class="col text-center text-weight-bold">Idiomas</div>
-              </q-bar>
-            </div>
-            <div class="row">
-              <div class="flex col-12 justify-around q-pt-sm">
-                <div clas="col-sm-4">
-                  <q-avatar square>
-                    <img  src="../assets/icons/Flag_Spain.svg" alt="Idioma Español">
-                  </q-avatar>
-                  <div class="flex justify-center"><q-rating
-                    v-model="ratingSpanish"
-                    :max="3"
-                    color="orange"
-                    readonly
-                  /></div>
+              <div class="col-12 q-pt-md" @mouseover="start" @mouseleave="restart" v-if="info.methodToogle">
+                <q-bar class="bg-white">
+                  <q-icon name="devices"></q-icon>
+                  <div class="col">Front-End</div>
+                </q-bar>
+                <q-linear-progress :value="progress" color="positive" class="q-mt-sm"/>
+              </div>
+              <div class="col-12 q-pt-md" @mouseover="startBack" @mouseleave="restartBack" v-if="info.methodToogle">
+                <q-bar class="bg-white">
+                  <q-icon name="storage"></q-icon>
+                  <div class="col">Back-End</div>
+                </q-bar>
+                <q-linear-progress :value="progress1" color="warning" class="q-mt-sm"/>
+              </div>
+              <div class="row" v-if="info.lenguageToogle">
+                <div class="flex col-12 justify-around q-pt-sm">
+                  <div clas="col-sm-4" v-for="point in info.points">
+                    <q-avatar square>
+                      <img :src="point.url" :alt="point.alt">
+                    </q-avatar>
+                    <div class="flex justify-center">
+                      <q-rating
+                        v-if="!point.englishToogle"
+                        v-model="ratingSpanish"
+                        :max="3"
+                        color="orange"
+                        readonly
+                      />
+                      <div class="flex justify-center" v-if="point.englishToogle">
+                        <q-rating
+                          v-model="ratingEnglish"
+                          :max="3"
+                          color="orange"
+                          readonly
+                        />
+                      </div>
+                    </div>
                   </div>
-                <div>
-                  <q-avatar square>
-                    <img  src="../assets/icons/Flag_Catalonia.svg" alt="Idioma Catalan">
-                  </q-avatar>
-                  <div class="flex justify-center"><q-rating
-                    v-model="ratingCatalan"
-                    :max="3"
-                    color="orange"
-                    readonly
-                  /></div>
-                </div>
-                <div>
-                  <q-avatar square>
-                    <img  src="../assets/icons/gb.svg" alt="Idioma Ingles">
-                  </q-avatar>
-                  <div class="flex justify-center"><q-rating
-                    v-model="ratingEnglish"
-                    :max="3"
-                    color="orange"
-                    readonly
-                  /></div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 q-pt-lg">
-              <q-bar class="bg-negative text-white">
-                <q-icon name="add_circle_outline"></q-icon>
-                <div class="col text-center text-weight-bold">Otras Competencias</div>
-              </q-bar>
-            </div>
-            <div class="q-pa-md col-12">
-              <q-list dense class="rounded-borders">
+              <q-list dense class="rounded-borders" v-if="info.competenciasToogle">
                 <ul class="q-pa-none">
-                  <q-item clickable v-ripple>
+                  <q-item clickable v-ripple v-for="point in info.points">
                     <li class="text-justify">
-                      <span class="text-weight-bold">Primeros auxilios:</span>
-                      <p>Cerificado de Primeros Auxilios certificado por la Cruz Roja (25
-                        horas - 2004)</p>
-                    </li>
-                  </q-item>
-                  <q-item clickable v-ripple>
-                    <li class="text-justify">
-                      <span class="text-weight-bold">Curso de prevención de reisgos laborales:</span>
-                      <p>Certificado por la academia Fomento Profesional (25 horas - 2014)</p>
-                    </li>
-                  </q-item>
-                  <q-item clickable v-ripple>
-                    <li class="text-justify">
-                      <span class="text-weight-bold">Curso técnico instalador de energías renovables:</span>
-                      <p>Cerificado por la academa Fomento Profesional
-                        (800 horas - 2012)</p>
-                    </li>
-                  </q-item>
-                  <q-item clickable v-ripple>
-                    <li class="text-justify">
-                      <span class="text-weight-bold">Curso de gas canalizado y altas de nuevo suministro:</span>
-                      <p>Cerificado por la empresa Activais (50 horas - 2012)</p>
+                      <span class="text-weight-bold">{{point.bold}}</span>
+                      <p>{{point.text}}</p>
                     </li>
                   </q-item>
                 </ul>
@@ -205,347 +101,74 @@
               <div class="col text-center text-weight-bold">Informática</div>
             </q-bar>
             <div class="row q-pa-sm">
-              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
-                <img src="../assets/icons/html5.svg"/>
+              <div v-for="image in images8" class="col-lg-1 col-sm-8 q-pa-lg flex items-center justify-around">
+                <img :src="image.url" :alt="image.alt"/>
               </div>
-              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
-                <img src="../assets/icons/css3.svg"/>
+
+              <div v-for="image in images4" class="col-lg-2 col-sm-4 q-pa-lg flex items-center justify-around">
+                <img :src="image.url" :alt="image.alt"/>
               </div>
-              <div class="col-lg-1 col-sm-8 q-pa-lg flex items-center">
-                <img src="../assets/icons/js6.svg"/>
+
+              <div v-for="image in images6" class="col-lg-3 col-sm-6 q-pa-lg flex items-center justify-around">
+                <img :src="image.url" :alt="image.alt"/>
               </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/Sass_Logo.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/vue.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/quasar.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/Npm-logo.svg"/>
-              </div>
-            </div>
-            <div class="row q-pa-sm flex justify-around">
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/java_logo.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/mysql_logo.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/git_icon.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/apache-logo.svg"/>
-              </div>
-              <div class="col-lg-2 col-sm-4 q-pa-lg flex items-center">
-                <img src="../assets/icons/tomcat_logo.svg"/>
-              </div>
-            </div>
-            <div class="row flex items-center justify-around">
               <div class="col-lg-1 col-sm-3 q-pa-lg">
                 <img src="../assets/icons/gulp.svg"/>
-              </div>
-              <div class="col-lg-3 col-sm-6 q-pa-lg">
-                <img src="../assets/icons/Cordova-logo.svg"/>
-              </div>
-              <div class="col-lg-3 col-sm-6 q-pa-lg">
-                <img src="../assets/icons/photoshop_logo.svg"/>
-              </div>
-              <div class="col-lg-3 col-sm-6 q-pa-lg">
-                <img src="../assets/icons/illustrator.svg"/>
               </div>
             </div>
             <q-bar class="bg-negative text-white">
               <q-icon name="work"></q-icon>
               <div class="col text-center text-weight-bold">Experiencia Laboral</div>
             </q-bar>
+
             <div class="q-pa-md row justify-around q-gutter-md">
-              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
-                <img src="../assets/taxi.png">
-                <q-card-section>
-                  <div class="text-h6">Abril 2013 - Actualidad</div>
-                  <div class="text-subtitle2 text-negative">Ajuntament de Palma</div>
-                </q-card-section>
-                <q-tabs v-model="tab"
-                        dense
-                        active-color="negative"
-                        indicator-color="negative"
-                        align="justify"
-                        narrow-indicator>
-                  <q-tab label="Cargos" name="one"/>
-                  <q-tab label="Información" name="two"/>
-                </q-tabs>
-                <q-separator/>
-                <q-tab-panels v-model="tab" animated>
-                  <q-tab-panel name="one">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Transporte de clientes en la isla de Mallorca.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Capacidad de comunicación con el cliente.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                  <q-tab-panel name="two">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Solamente ejerzo este puesto durante las temporadas de verano.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>He trabajado con las tres radios disponibles en Palma: Taxis-Palma,
-                                Radio-Taxi y Taxi-Telefono.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Aunque no tengo ningún problema con el horario, siempre he cubierto el turno
-                                nocturno.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                </q-tab-panels>
-              </q-card></div>
-              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
-                <img src="../assets/inspeciónperiodica.png">
-                <q-card-section>
-                  <div class="text-h6">Marzo 2007 - Junio 2013</div>
-                  <div class="text-subtitle2 text-negative">Activais</div>
-                </q-card-section>
-                <q-tabs v-model="tab1"
-                        dense
-                        active-color="negative"
-                        indicator-color="negative"
-                        align="justify"
-                        narrow-indicator>
-                  <q-tab label="Cargos" name="one"/>
-                  <q-tab label="Información" name="two"/>
-                </q-tabs>
-                <q-separator/>
-                <q-tab-panels v-model="tab1" animated>
-                  <q-tab-panel name="one">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Pruebas de estanqueidad en instalaciones comunes e individuales.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Instalación de contadores de gas canalizado.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Pruebas de combustión de CO2 a aparatos de menos de 70Kw.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                  <q-tab-panel name="two">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>La empresa distribuidora de gas natural es Gesa Gas.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Activais era la empresa subcontratada por Gesa Gas</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                </q-tab-panels>
-              </q-card></div>
-              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
-                <img src="../assets/Son-San-Juan.png">
-                <q-card-section>
-                  <div class="text-h6">Octubre 2005 - Noviembre 2007</div>
-                  <div class="text-subtitle2 text-negative">Fuerza Armada Española</div>
-                </q-card-section>
-                <q-tabs v-model="tab2"
-                        dense
-                        active-color="negative"
-                        indicator-color="negative"
-                        align="justify"
-                        narrow-indicator>
-                  <q-tab label="Cargos" name="one"/>
-                  <q-tab label="Información" name="two"/>
-                </q-tabs>
-                <q-separator/>
-                <q-tab-panels v-model="tab2" animated>
-                  <q-tab-panel name="one">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Policía militar profesional en el ejercito de aire.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Función de guarda espaldas para altos mandos del ejercito español.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Rango: Soldado.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                  <q-tab-panel name="two">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Vigilancia de aviones de combate y helicopteros de salvamento.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Practicas de tiro con diferentes tipos de armas y munición.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                </q-tab-panels>
-              </q-card></div>
-              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm"><q-card class="my-card full-height">
-                <img src="../assets/lacolumnata.png">
-                <q-card-section>
-                  <div class="text-h6">Septiembre 2003 - Septiembre 2005</div>
-                  <div class="text-subtitle2 text-negative">La Columnata</div>
-                </q-card-section>
-                <q-tabs v-model="tab3"
-                        dense
-                        active-color="negative"
-                        indicator-color="negative"
-                        align="justify"
-                        narrow-indicator>
-                  <q-tab label="Cargos" name="one"/>
-                  <q-tab label="Información" name="two"/>
-                </q-tabs>
-                <q-separator/>
-                <q-tab-panels v-model="tab3" animated>
-                  <q-tab-panel name="one">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Transporte de pedidos a domicilio.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Cocinero.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Encargado de local.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                  <q-tab-panel name="two">
-                    <ul class="q-pa-none">
-                      <q-list>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Equipo de cuatro personas al cargo. llevaba las cuentas del local y me
-                                encargaba de hacer el inventario del local.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Encargado de la contabilidad del local al cargo.</q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                        <q-item clickable v-ripple>
-                          <li>
-                            <q-item-section>
-                              <q-item-label>Encargado del inventario del local, asi como de hacer los pedidos a los
-                                proveedores.
-                              </q-item-label>
-                            </q-item-section>
-                          </li>
-                        </q-item>
-                      </q-list>
-                    </ul>
-                  </q-tab-panel>
-                </q-tab-panels>
-              </q-card></div>
+              <div class="col-lg-3 col-xs-12 q-ma-none q-pa-sm" v-for="work in works">
+                <q-card class="my-card full-height">
+                  <img :src="work.url">
+                  <q-card-section>
+                    <div class="text-h6">{{work.date}}</div>
+                    <div class="text-subtitle2 text-negative">{{work.company}}</div>
+                  </q-card-section>
+                  <q-tabs v-model="tab"
+                          dense
+                          active-color="negative"
+                          indicator-color="negative"
+                          align="justify"
+                          narrow-indicator>
+                    <q-tab label="Cargos" name="one"/>
+                    <q-tab label="Información" name="two"/>
+                  </q-tabs>
+                  <q-separator/>
+                  <q-tab-panels v-model="tab" animated>
+                    <q-tab-panel name="one">
+                      <ul class="q-pa-none">
+                        <q-list>
+                          <q-item clickable v-ripple v-for="cargo in work.cargos">
+                            <li>
+                              <q-item-section>
+                                <q-item-label>{{cargo}}</q-item-label>
+                              </q-item-section>
+                            </li>
+                          </q-item>
+                        </q-list>
+                      </ul>
+                    </q-tab-panel>
+                    <q-tab-panel name="two">
+                      <ul class="q-pa-none">
+                        <q-list>
+                          <q-item clickable v-ripple v-for="advice in work.advices">
+                            <li>
+                              <q-item-section>
+                                <q-item-label>{{advice}}</q-item-label>
+                              </q-item-section>
+                            </li>
+                          </q-item>
+                        </q-list>
+                      </ul>
+                    </q-tab-panel>
+                  </q-tab-panels>
+                </q-card>
+              </div>
             </div>
           </div>
         </div>
@@ -594,9 +217,171 @@
         ratingCatalan: 3,
         ratingEnglish: 2,
         tab: 'one',
-        tab1: 'one',
-        tab2: 'one',
-        tab3: 'one',
+        images8: [
+          {url: '../../assets/icons/html5.svg', alt: 'html logo'},
+          {url: '../../assets/icons/css3.svg', alt: 'CSS3 logo'},
+          {url: '../../assets/icons/js6.svg', alt: 'JavaScript Logo'},
+        ],
+        images4: [
+          {url: '../../assets/icons/Sass_Logo.svg', alt: 'Sass Logo'},
+          {url: '../../assets/icons/vue.svg', alt: 'Vue Logo'},
+          {url: '../../assets/icons/jquery-logo.svg', alt: 'JQuery Logo'},
+          {url: '../../assets/icons/Npm-logo.svg', alt: 'NPM Logo'},
+          {url: '../../assets/icons/java_logo.svg', alt: 'Java Logo'},
+          {url: '../../assets/icons/mysql_logo.svg', alt: 'MySql Logo'},
+          {url: '../../assets/icons/git_icon.svg', alt: 'Git Logo'},
+          {url: '../../assets/icons/apache-logo.svg', alt: 'Apache Logo'},
+          {url: '../../assets/icons/tomcat_logo.svg', alt: 'Tomcat Logo'},
+        ],
+        images6: [
+          {url: '../../assets/icons/Cordova-logo.svg', alt: 'Cordova Logo'},
+          {url: '../../assets/icons/photoshop_logo.svg', alt: 'Pthotoshop Logo'},
+          {url: '../../assets/icons/illustrator.svg', alt: 'Illustrator Logo'}
+        ],
+        works: [
+          {
+            url: '../../assets/taxi.png', date: 'Abril 2013 - Actualidad', company: 'Ajuntament de Palma',
+            cargos: ['Transporte de clientes por la isla de Mallorca', 'Capacidad de comunicación con el cliente.'],
+            advices: [
+              'Solamente ejerzo este puesto durante las temporadas de verano.',
+              'He trabajado con las tres radios disponibles en Palma: Taxis-Palma, Radio-Taxi y Taxi-Telefono.',
+              'Aunque no tengo ningún problema con el horario, siempre he cubierto el turno nocturno.',
+            ]
+          },
+          {
+            url: '../../assets/gas.png', date: 'Abril 2013 - Actualidad', company: 'Activais',
+            cargos: ['Pruebas de estanqueidad en instalaciones comunes e individuales.',
+              'Instalación de contadores de gas canalizado.', 'Pruebas de combustión de CO2 a aparatos de menos de 70Kw.'],
+            advices: [
+              'La empresa distribuidora de gas natural es Gesa Gas.',
+              'Activais era la empresa subcontratada por Gesa Gas.',
+            ]
+          },
+          {
+            url: '../../assets/Son-San-Juan.png',
+            date: 'Octubre 2005 - Noviembre 2007',
+            company: 'Fuerza Armada Española',
+            cargos: ['Policía militar profesional en el ejercito de aire.',
+              'Función de guarda espaldas para altos mandos del ejercito español.', 'Rango: Soldado.'],
+            advices: [
+              'Vigilancia de aviones de combate y helicopteros de salvamento.',
+              'Practicas de tiro con diferentes tipos de armas y munición.',
+            ]
+          },
+          {
+            url: '../../assets/lacolumnata.png', date: 'Septiembre 2003 - Septiembre 2005', company: 'La Columnata',
+            cargos: ['Transporte de pedidos a domicilio.',
+              'Cocinero.', 'Encargado de local.'],
+            advices: [
+              'Equipo de cuatro personas al cargo. llevaba las cuentas del local y me encargaba de hacer el inventario del local.',
+              'Encargado de la contabilidad del local al cargo.', 'Encargado del inventario del local, asi como de hacer los pedidos a los proveedores.'
+            ]
+          },
+        ],
+        information: [
+          {
+            icon: 'my_location', title: 'Objetivo Profesional',
+            text: 'Mi deseo es adaptarme a las necesidades de la empresa y aprovechar la posibilidad de trabajar en su ' +
+              'equipo, para crecer como profesional y dar lo mejor de mis cualidades. Mi preferencia esta en el lado ' +
+              '\'Front-End\', aunque puedo desarrollar cualquier aspecto de este campo.',
+            url: '../assets/fotocarnet.png',
+            alt: 'Foto Marcos Valens',
+            textToogle: true,
+            imgToogle: true,
+            listToogle: false,
+            linkToogle: false,
+            methodToogle: false,
+            lenguageToogle: false,
+          },
+          {
+            icon: 'face',
+            title: 'Información Personal',
+            points: [
+              {icon: 'insert_invitation', text: '16 de septiembre de 1985'},
+              {icon: 'person_pin_circle', text: 'Son Ferriol, Palma'},
+              {icon: 'directions_car', text: 'A1 - B - BTP'},],
+            listToogle: true,
+            textToogle: false,
+            imgToogle: false,
+            linkToogle: false,
+            methodToogle: false,
+            lenguageToogle: false,
+          },
+          {
+            icon: 'email',
+            title: 'Contacto',
+            points: [
+              {icon: 'phone', text: '+34 685 348 612', direction: 'tel:+34 685 348 612'},
+              {icon: 'alternate_email', text: 'marcosvalens@gmail.com', direction: 'mailto:marcosvalens@gmail.com'},
+              {icon: 'ion-logo-github', text: 'github.com/marcosvalens', direction: 'https://github.com/marcosvalens'},
+              {
+                icon: 'ion-logo-linkedin',
+                text: 'linkedin.com/in/marcosvalens',
+                direction: 'https://www.linkedin.com/in/marcosvalens/'
+              },],
+            linkToogle: true,
+            textToogle: false,
+            imgToogle: false,
+            listToogle: false,
+            methodToogle: false,
+            lenguageToogle: false,
+
+          },
+          {
+            icon: 'timeline',
+            title: 'Competencias',
+            methodToogle: true,
+            textToogle: false,
+            imgToogle: false,
+            listToogle: false,
+            linkToogle: false,
+            lenguageToogle: false,
+          },
+          {
+            icon: 'mode_comment',
+            title: 'Idiomas',
+            points: [
+              {url: '../assets/icons/Flag_Spain.svg', alt: 'Bandera de España', englishToogle: false},
+              {url: '../assets/icons/Flag_Catalonia.svg', alt: 'Bandera de Cataluña', englishToogle: false},
+              {url: '../assets/icons/gb.svg', alt: 'Bandera de Inglaterra', englishToogle: true},
+            ],
+            lenguageToogle: true,
+            textToogle: false,
+            imgToogle: false,
+            listToogle: false,
+            linkToogle: false,
+            methodToogle: false,
+          },
+          {
+            icon: 'add_circle_outline',
+            title: 'Otras Competencias',
+            points: [
+              {
+                bold: 'Primeros Auxilios:',
+                text: 'Cerificado de Primeros Auxilios certificado por la Cruz Roja (25 horas - 2004)'
+              },
+              {
+                bold: 'Curso de prevención de reisgos laborales:',
+                text: 'Certificado por la academia Fomento Profesional (25 horas - 2014)'
+              },
+              {
+                bold: 'Curso técnico instalador de energías renovables',
+                text: 'Cerificado por la academa Fomento Profesional (800 horas - 2012)'
+              },
+              {
+                bold: 'Curso de gas canalizado y altas de nuevo suministro:',
+                text: 'Cerificado por la empresa Activais (50 horas - 2012)'
+              },
+            ],
+            competenciasToogle: true,
+            textToogle: false,
+            imgToogle: false,
+            listToogle: false,
+            linkToogle: false,
+            methodToogle: false,
+            lenguageToogle: false
+          }
+        ]
       }
     },
     methods: {
