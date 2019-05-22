@@ -50,20 +50,11 @@
                     </q-avatar>
                     <div class="flex justify-center">
                       <q-rating
-                        v-if="!point.englishToogle"
-                        v-model="ratingSpanish"
+                        v-model="point.rating"
                         :max="3"
                         color="orange"
                         readonly
                       />
-                      <div class="flex justify-center" v-if="point.englishToogle">
-                        <q-rating
-                          v-model="ratingEnglish"
-                          :max="3"
-                          color="orange"
-                          readonly
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -129,7 +120,7 @@
                     <div class="text-h6">{{work.date}}</div>
                     <div class="text-subtitle2 text-negative">{{work.company}}</div>
                   </q-card-section>
-                  <q-tabs v-model="tab"
+                  <q-tabs v-model="work.tab"
                           dense
                           active-color="negative"
                           indicator-color="negative"
@@ -139,7 +130,7 @@
                     <q-tab label="Información" name="two"/>
                   </q-tabs>
                   <q-separator/>
-                  <q-tab-panels v-model="tab" animated>
+                  <q-tab-panels v-model="work.tab" animated>
                     <q-tab-panel name="one">
                       <ul class="q-pa-none">
                         <q-list>
@@ -213,10 +204,10 @@
       return {
         progress: 0.0,
         progress1: 0.0,
-        ratingSpanish: 3,
+
         ratingCatalan: 3,
         ratingEnglish: 2,
-        tab: 'one',
+
         images8: [
           {url: '../../assets/icons/html5.svg', alt: 'html logo'},
           {url: '../../assets/icons/css3.svg', alt: 'CSS3 logo'},
@@ -240,6 +231,7 @@
         ],
         works: [
           {
+            tab: 'one',
             url: '../../assets/taxi.png', date: 'Abril 2013 - Actualidad', company: 'Ajuntament de Palma',
             cargos: ['Transporte de clientes por la isla de Mallorca', 'Capacidad de comunicación con el cliente.'],
             advices: [
@@ -249,6 +241,7 @@
             ]
           },
           {
+            tab: 'one',
             url: '../../assets/gas.png', date: 'Abril 2013 - Actualidad', company: 'Activais',
             cargos: ['Pruebas de estanqueidad en instalaciones comunes e individuales.',
               'Instalación de contadores de gas canalizado.', 'Pruebas de combustión de CO2 a aparatos de menos de 70Kw.'],
@@ -258,6 +251,7 @@
             ]
           },
           {
+            tab: 'one',
             url: '../../assets/Son-San-Juan.png',
             date: 'Octubre 2005 - Noviembre 2007',
             company: 'Fuerza Armada Española',
@@ -269,6 +263,7 @@
             ]
           },
           {
+            tab: 'one',
             url: '../../assets/lacolumnata.png', date: 'Septiembre 2003 - Septiembre 2005', company: 'La Columnata',
             cargos: ['Transporte de pedidos a domicilio.',
               'Cocinero.', 'Encargado de local.'],
@@ -341,9 +336,9 @@
             icon: 'mode_comment',
             title: 'Idiomas',
             points: [
-              {url: '../assets/icons/Flag_Spain.svg', alt: 'Bandera de España', englishToogle: false},
-              {url: '../assets/icons/Flag_Catalonia.svg', alt: 'Bandera de Cataluña', englishToogle: false},
-              {url: '../assets/icons/gb.svg', alt: 'Bandera de Inglaterra', englishToogle: true},
+              {url: '../assets/icons/Flag_Spain.svg', alt: 'Bandera de España', englishToogle: false,rating: 3,},
+              {url: '../assets/icons/Flag_Catalonia.svg', alt: 'Bandera de Cataluña', englishToogle: false, rating: 3,},
+              {url: '../assets/icons/gb.svg', alt: 'Bandera de Inglaterra', englishToogle: true, rating: 2,},
             ],
             lenguageToogle: true,
             textToogle: false,
